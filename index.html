@@ -16,7 +16,7 @@
 
         <div class="email-list">
             <ul>
-                <li></li>
+                <li v-for="element in email">{{ email }}</li>
             </ul>
         </div>
         <button @click="generateEmail">Genera email</button>
