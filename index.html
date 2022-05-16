@@ -15,8 +15,8 @@
     <div class="" id="root">
 
         <div class="email-list">
-            <ul>
-                <li v-for="element in email">{{ email }}</li>
+            <ul v-if="emails.length >= 10">
+                <li v-for="item in emails">{{ item }}</li>
             </ul>
         </div>
         <button @click="generateEmail">Genera email</button>

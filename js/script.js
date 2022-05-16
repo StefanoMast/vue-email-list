@@ -2,26 +2,19 @@ const app = new Vue(
     {
         el: "#root",
         data: {
-            email: [],
-            minValue: 1,
-            maxValue: 10,
-            itemsEmail: 10
+            emails: []
         },
-        methods: {
-            generateEmail() {
-                axios
-                .get('https://flynn.boolean.careers/exercises/api/random/mail'
-                params: {
-                    min: this.minValue,
-                    max: this.maxValue,
-                    items: this.itemsEmail
-                })
-                .then((resp) => {
-                    const randomEmails = resp.data.response;
-                    this.email = randomEmails;
-                })
+        created() {
+            for(let i = 0; i<10; i++) {
+                axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+                then((resp) => {
+                    const newEmail = resp-data.response;
+                    this.emails.push(newEmail);
+                });
                 
             }
         }
+        
+        
     }
 )
